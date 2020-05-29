@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    
+</head>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+
+var url = 'http://localhost:8100/';
+var clienteSel;
+
+
+function procesarError(error){
+    console.log(error);
+}
+
+
+function exito(){
+	
+}
+
+function insertarPedido(){
+	
+    var pedido = {
+    	codigo : 'PED-0',
+    	fecha : 'Hoy',
+    	estado : 'Pendiente',
+    	cliente : {
+    		login : 'monty@hotmail.com'
+    	}
+    }
+
+    $.ajax( { 'url'         : url+"pedidos",
+              'success'     : exito,
+              'error'       : procesarError,
+              'type'        : 'post',
+              'contentType' : 'application/json; charset=UTF-8',
+              'data'        : JSON.stringify(pedido)
+            } );
+}
+
+$(inicializar);
+
+function inicializar(){
+	$("#btnInsertar").click(insertarPedido)
+}
+
+</script>
+
+
+<body>
+
+    <div class="text-center page-header">
+        <h1>
+            Prueba de pedidos   
+        </h1>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-0 col-sm-2"></div>
+        <div class="text-center col-xs-12 col-sm-8">
+            <div>
+                <input class="btn btn-primary" type="button" id="btnInsertar"  value="Insertar"/>
+            </div>
+        </div>
+        <div class="col-xs-0 col-sm-2"></div>
+    </div>
+
+</body>
+</html>
+
