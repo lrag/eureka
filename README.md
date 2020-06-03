@@ -38,7 +38,7 @@ Proyecto SpringBoot que levanta el servidor Eureka en el puerto 8084 de localhos
 
 * Colocar las bases de datos en C:/H2 (si se colocan en otro sitio modificar los ficheros application.properties)
 * Ejecutar los main (están en el paquete com.curso de los tres proyectos)
-* Enviar una petición POST a localhost:8100 con content/type 'application/json' y el siguiente documento en el body:
+* Enviar una petición POST a localhost:8100 con content-type 'application/json' y el siguiente documento en el body:
 
 {
 	"codigo"  : "PED-0",
